@@ -1,10 +1,10 @@
 import style from "./SignIn.module.css"
 import Button from "../Button/Button.tsx";
-import Input from "../Input/Input.tsx";
 import { useReducer } from "react";
 import React from "react";
 import { signIn } from "../../services/accountService.ts";
 import {useAccountStore} from "../../store/accountStore.ts";
+import {ReactAppInput} from "../Shared/Input.ts";
 
 
 type State = {
@@ -55,17 +55,17 @@ const SignIn = ({ setIsSignIn }: Props) => {
             <div>
                 <h1>Sign In</h1>
                 <fieldset>
-                    <Input
+                    <ReactAppInput
                         type="text"
                         label="Username"
                         value={state.username}
-                        onChange={val => dispatch({ type: "SET_USERNAME", payload: val })}
+                        onChange={val => dispatch({ type: "SET_USERNAME", payload: val.detail })}
                     />
-                    <Input
+                    <ReactAppInput
                         type="password"
                         label="Password"
                         value={state.password}
-                        onChange={val => dispatch({ type: "SET_PASSWORD", payload: val })}
+                        onChange={val => dispatch({ type: "SET_PASSWORD", payload: val.detail })}
                     />
                 </fieldset>
             </div>

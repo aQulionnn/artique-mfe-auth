@@ -1,8 +1,8 @@
 import style from './SignUp.module.css'
-import Input from "../Input/Input.tsx";
 import Button from "../Button/Button.tsx";
 import React, { useReducer } from "react";
 import { signUp } from "../../services/accountService.ts";
+import {ReactAppInput} from "../Shared/Input.ts";
 
 type State = {
     email: string;
@@ -68,29 +68,29 @@ const SignUp = ({ setIsSignIn }: Props) => {
             <div>
                 <h1>Sign Up</h1>
                 <fieldset>
-                    <Input
+                    <ReactAppInput
                         type="email"
                         label="Email"
                         value={state.email}
-                        onChange={val => dispatch({ type: "SET_EMAIL", payload: val })}
+                        onChange={val => dispatch({ type: "SET_EMAIL", payload: val.detail })}
                     />
-                    <Input
+                    <ReactAppInput
                         type="text"
                         label="Username"
                         value={state.username}
-                        onChange={val => dispatch({ type: "SET_USERNAME", payload: val })}
+                        onChange={val => dispatch({ type: "SET_USERNAME", payload: val.detail })}
                     />
-                    <Input
+                    <ReactAppInput
                         type="password"
                         label="Password"
                         value={state.password}
-                        onChange={val => dispatch({ type: "SET_PASSWORD", payload: val })}
+                        onChange={val => dispatch({ type: "SET_PASSWORD", payload: val.detail })}
                     />
-                    <Input
+                    <ReactAppInput
                         type="password"
                         label="Repeat Password"
                         value={state.repeatPassword}
-                        onChange={val => dispatch({ type: "SET_REPEAT_PASSWORD", payload: val })}
+                        onChange={val => dispatch({ type: "SET_REPEAT_PASSWORD", payload: val.detail })}
                     />
                 </fieldset>
             </div>
