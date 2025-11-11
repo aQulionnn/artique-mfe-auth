@@ -10,9 +10,9 @@ button {
     color: var(--color-black);
 
     transition: 0.5s;
-}
 
-button:hover {
-    cursor: pointer;
-    transform: scale(1.15)
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.15)
+    }
 }

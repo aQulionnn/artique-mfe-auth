@@ -1,4 +1,4 @@
-import style from './SignUp.module.css'
+import style from './SignUp.module.scss'
 import Button from "../Button/Button.tsx";
 import React, { useReducer } from "react";
 import { signUp } from "../../services/accountService.ts";

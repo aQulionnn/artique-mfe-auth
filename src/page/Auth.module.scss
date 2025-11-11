@@ -1,6 +1,3 @@
-@use "../styles/colors";
-@use 'sass:math';
-
 main {
     width: 100dvw;
     height: 100dvh;
@@ -21,59 +18,35 @@ main {
 .left-section {
     @extend %section;
 
+    @function draw-line($angle, $color, $offset, $moveX, $moveY, $width, $height, $repeat) {
+        @return linear-gradient(
+            $angle,
+            var(--color-transparent) calc(50% - #{$offset}),
+            $color 0 calc(50% + #{$offset}),
+            var(--color-transparent) 0
+        ) + " " + $moveX + " " + $moveY + " / " + $width + " " + $height + " " + $repeat
+    }
+
     background:
         radial-gradient(
             circle,
             var(--color-black) 2.5%,
             var(--color-transparent) 0
         ),
-        linear-gradient(
-            var(--color-transparent) calc(50% - 2px),
-            var(--color-white) 0 calc(50% + 2px),
-            var(--color-transparent) 0
-        ) 50% 50% / 25% 25% no-repeat,
+        draw-line(0deg, var(--color-white), 2px, 50%, 50%, 25%, 25%, no-repeat),
+        draw-line(90deg, var(--color-white), 2px, 50%, 50%, 25%, 25%, no-repeat),
+        draw-line(45deg, var(--color-white), 2px, 45%, 45%, 15%, 15%, no-repeat),
+        draw-line(-45deg, var(--color-white), 2px, 45%, 55%, 15%, 15%, no-repeat),
         linear-gradient(
             90deg,
-            var(--color-transparent) calc(50% - 2px),
-            var(--color-white) 0 calc(50% + 2px),
-            var(--color-transparent) 0
-        ) 50% 50% / 25% 25% no-repeat,
-        linear-gradient(
-            45deg,
-            var(--color-transparent) calc(50% - 2px),
-            var(--color-white) 0 calc(50% + 2px),
-            var(--color-transparent) 0
-        ) 45% 45% / 15% 15% no-repeat,
-        linear-gradient(
-            -45deg,
-            var(--color-transparent) calc(50% - 2px),
-            var(--color-white) 0 calc(50% + 2px),
-            var(--color-transparent) 0
-        ) 45% 55% / 15% 15% no-repeat,
-        linear-gradient(
-                90deg,
-                var(--color-transparent) calc(50% - 0.5px),
-                var(--color-gray-50) 0 calc(50% + 0.5px),
-                var(--color-transparent) 0 calc(100% - 1px),
-                var(--color-gray-50) 0
+            var(--color-transparent) calc(50% - 0.5px),
+            var(--color-gray-50) 0 calc(50% + 0.5px),
+            var(--color-transparent) 0 calc(100% - 1px),
+            var(--color-gray-50) 0
         ),
-        linear-gradient(
-                var(--color-transparent) calc(50% - 0.5px),
-                var(--color-gray-50) 0 calc(50% + 0.5px),
-                var(--color-transparent) 0
-        ),
-        linear-gradient(
-                45deg,
-                var(--color-transparent) calc(50% - 0.5px),
-                var(--color-gray-50) 0 calc(50% + 0.5px),
-                var(--color-transparent) 0
-        ),
-        linear-gradient(
-                -45deg,
-                var(--color-transparent) calc(50% - 0.5px),
-                var(--color-gray-50) 0 calc(50% + 0.5px),
-                var(--color-transparent) 0
-        );
+        draw-line(0deg, var(--color-gray-50), 0.5px, 0%, 0%, 100%, 100%, no-repeat),
+        draw-line(45deg, var(--color-gray-50), 0.5px, 0%, 0%, 100%, 100%, no-repeat),
+        draw-line(-45deg, var(--color-gray-50), 0.5px, 0%, 0%, 100%, 100%, no-repeat);
 }
 
 .right-section {

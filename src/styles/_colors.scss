@@ -1,20 +1,20 @@
 $colors: (
-  --color-gray-50: #171717,
-  --color-gray-100: #161616,
-  --color-gray-200: #151515,
-  --color-gray-300: #141414,
-  --color-gray-400: #131313,
-  --color-gray-500: #111111,
-  --color-gray-600: #101010,
-  --color-white: #fff,
-  --color-black: #000,
-  --color-transparent: transparent
+    --color-gray-50: #171717,
+    --color-gray-100: #161616,
+    --color-gray-200: #151515,
+    --color-gray-300: #141414,
+    --color-gray-400: #131313,
+    --color-gray-500: #111111,
+    --color-gray-600: #101010,
+    --color-white: #fff,
+    --color-black: #000,
+    --color-transparent: transparent
 );
 
 @each $name, $color in $colors {
-  @property #{$name} {
-    syntax: '<color>';
-    inherits: false;
-    initial-value: $color;
-  }
+    @property #{$name} {
+        syntax: '<color>';
+        inherits: false;
+        initial-value: $color;
+    }
 }

@@ -1,4 +1,4 @@
-import style from './Button.module.css'
+import style from './Button.module.scss'
 
 type Props = {
     text: string

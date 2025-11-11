@@ -11,10 +11,10 @@ form {
 span {
     font-size: 0.75rem;
     color: var(--color-white);
-}
 
-span:hover {
-    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 div {
