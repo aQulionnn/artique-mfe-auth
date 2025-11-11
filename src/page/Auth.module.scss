@@ -1,3 +1,6 @@
+@use "../styles/colors";
+@use 'sass:math';
+
 main {
     width: 100dvw;
     height: 100dvh;
@@ -10,12 +13,14 @@ main {
     gap: 10px;
 }
 
-section {
+%section {
     width: 50%;
     height: 100%;
 }
 
 .left-section {
+    @extend %section;
+
     background:
         radial-gradient(
             circle,
@@ -72,16 +77,31 @@ section {
 }
 
 .right-section {
+    @extend %section;
+
     background:
         radial-gradient(
             circle at left center,
-            var(--color-gray-50) 0 10%,
-            var(--color-gray-100) 0 15%,
-            var(--color-gray-200) 0 20%,
-            var(--color-gray-300) 0 25%,
-            var(--color-gray-400) 0 35%,
-            var(--color-gray-500) 0 50%,
-            var(--color-gray-600) 0
+            var(--color-gray-50),
+            var(--color-gray-50) 10%,
+
+            var(--color-gray-100) 10%,
+            var(--color-gray-100) 15%,
+
+            var(--color-gray-200) 15%,
+            var(--color-gray-200) 20%,
+
+            var(--color-gray-300) 20%,
+            var(--color-gray-300) 25%,
+
+            var(--color-gray-400) 25%,
+            var(--color-gray-400) 35%,
+
+            var(--color-gray-500) 35%,
+            var(--color-gray-500) 50%,
+
+            var(--color-gray-600) 50%,
+            var(--color-gray-600)
         );
 
     border-radius: 25px;

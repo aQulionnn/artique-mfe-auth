@@ -1,4 +1,4 @@
-import style from './Auth.module.css'
+import style from './Auth.module.scss'
 import SignIn from "../components/SignIn/SignIn.tsx";
 import { useState } from "react";
 import SignUp from "../components/SignUp/SignUp.tsx";
